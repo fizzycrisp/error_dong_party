@@ -3,102 +3,179 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MENU</title>
+  <title>Fizzycrisp — Menu</title>
+
+  <!-- Optional: Elegant serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#0b0c10;--card:#111319;--text:#f4f6ff;--muted:#a8b0c2;--line:#222635;--accent:#7aa2ff;}
+    :root{
+      --bg:#0b0b0c;
+      --paper:#0f1012;
+      --text:#f5f3ee;
+      --muted:#b9b3a7;
+      --line:rgba(245,243,238,.14);
+      --accent:#e7dcc6;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--text)}
-    .wrap{max-width:760px;margin:0 auto;padding:20px}
-    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
-    .brand{display:flex;flex-direction:column}
-    .brand h1{font-size:22px;margin:0}
-    .brand p{margin:6px 0 0;color:var(--muted);font-size:13px}
-    .chip{border:1px solid var(--line);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:12px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0}
-    details>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
-    details>summary::-webkit-details-marker{display:none}
-    .cat{font-weight:700}
-    .count{color:var(--muted);font-size:12px}
-    .items{border-top:1px solid var(--line)}
-    .item{padding:12px 16px;display:grid;grid-template-columns:1fr auto;gap:8px;border-top:1px solid rgba(255,255,255,.06)}
-    .item:first-child{border-top:none}
-    .name{font-weight:600}
-    .desc{grid-column:1/-1;color:var(--muted);font-size:13px;line-height:1.35}
-    .price{font-weight:700}
-    .soldout{opacity:.45}
-    .tag{display:inline-block;margin-left:8px;font-size:11px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
-    footer{margin:18px 0 6px;color:var(--muted);font-size:12px;line-height:1.5}
-    a{color:var(--accent);text-decoration:none}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(231,220,198,.10), transparent 55%),
+                  radial-gradient(900px 700px at 90% 15%, rgba(231,220,198,.08), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family:"Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing:.1px;
+    }
+    .wrap{max-width:820px;margin:0 auto;padding:28px 18px 40px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+    }
+    header{
+      padding:26px 22px 18px;
+      border-bottom:1px solid var(--line);
+    }
+    .brand{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .title{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:600;
+      font-size:30px;
+      letter-spacing:.6px;
+      margin:0;
+    }
+    .meta{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:8px;
+      line-height:1.45;
+    }
+    .pill{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .section{
+      padding:18px 22px 6px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-family:"Cormorant Garamond", serif;
+      font-weight:500;
+      font-size:18px;
+      letter-spacing:.4px;
+      color:var(--accent);
+    }
+
+    .items{padding:0 6px 16px}
+    .item{
+      padding:14px 16px;
+      margin:0 16px;
+      border-top:1px solid rgba(245,243,238,.10);
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:8px 12px;
+    }
+    .item:first-child{border-top:1px solid rgba(245,243,238,.10)}
+    .name{
+      font-size:16px;
+      font-weight:500;
+      line-height:1.25;
+    }
+    .sub{
+      grid-column:1 / -1;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+    }
+    .dots{
+      grid-column:1 / -1;
+      border-bottom:1px dotted rgba(245,243,238,.16);
+      margin-top:6px;
+    }
+    footer{
+      padding:16px 22px 22px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(231,220,198,.35)}
+    @media (max-width:480px){
+      .title{font-size:28px}
+      .item{margin:0 10px}
+      header{padding:22px 16px 16px}
+      .section{padding:16px 16px 6px}
+      footer{padding:14px 16px 18px}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="brand">
-        <h1>가게 이름</h1>
-        <p>영업시간 10:00–20:00 · 라스트오더 19:30</p>
+    <div class="card">
+      <header>
+        <div class="brand">
+          <div>
+            <h1 class="title">Fizzycrisp</h1>
+            <div class="meta">Seasonal Tasting À la Carte · Kitchen Select</div>
+          </div>
+          <div class="pill">ID <span class="mono">fizzycrisp</span></div>
+        </div>
+        <div class="meta">※ 메뉴 구성은 수급 상황에 따라 변경될 수 있습니다.</div>
+      </header>
+
+      <div class="section">
+        <h2>Menu</h2>
       </div>
-      <div class="chip">QR MENU</div>
-    </header>
 
-    <!-- 카테고리 1 -->
-    <div class="card">
-      <details open>
-        <summary>
-          <span class="cat">커피</span>
-          <span class="count">4 items</span>
-        </summary>
-        <div class="items">
-          <div class="item">
-            <div class="name">아메리카노 <span class="tag">HOT/ICE</span></div>
-            <div class="price">₩4,000</div>
-            <div class="desc">깔끔한 산미, 데일리</div>
-          </div>
-          <div class="item">
-            <div class="name">라떼 <span class="tag">ICE 추천</span></div>
-            <div class="price">₩4,800</div>
-            <div class="desc">고소한 우유 풍미</div>
-          </div>
-          <div class="item soldout">
-            <div class="name">바닐라 라떼 <span class="tag">SOLD OUT</span></div>
-            <div class="price">₩5,300</div>
-            <div class="desc">오늘은 품절입니다</div>
-          </div>
-          <div class="item">
-            <div class="name">콜드브루</div>
-            <div class="price">₩5,500</div>
-            <div class="desc">12시간 저온 추출</div>
-          </div>
+      <div class="items">
+        <div class="item">
+          <div class="name">스테이크 타르타르</div>
+          <div class="sub">캐비어 · 단새우</div>
         </div>
-      </details>
-    </div>
 
-    <!-- 카테고리 2 -->
-    <div class="card">
-      <details>
-        <summary>
-          <span class="cat">디저트</span>
-          <span class="count">2 items</span>
-        </summary>
-        <div class="items">
-          <div class="item">
-            <div class="name">치즈케이크</div>
-            <div class="price">₩6,500</div>
-            <div class="desc">진한 크림치즈</div>
-          </div>
-          <div class="item">
-            <div class="name">쿠키</div>
-            <div class="price">₩2,500</div>
-            <div class="desc">초코칩 듬뿍</div>
-          </div>
+        <div class="item">
+          <div class="name">굴 알 아히요</div>
+          <div class="sub">굴 · 마늘 · 토마토</div>
         </div>
-      </details>
-    </div>
 
-    <footer>
-      주소: 서울 ○○구 ○○로 12<br/>
-      문의: 010-1234-5678 · <a href="https://maps.google.com">지도 보기</a>
-    </footer>
+        <div class="item">
+          <div class="name">홍합 스튜</div>
+          <div class="sub">홍합 · 감자 · 토마토</div>
+        </div>
+
+        <div class="item">
+          <div class="name">숏파스타 봉골레</div>
+          <div class="sub">바지락 · 버터</div>
+        </div>
+
+        <div class="item">
+          <div class="name">문어 스테이크와 리조또</div>
+          <div class="sub">문어 · 샤프란 · 쌀</div>
+        </div>
+
+        <div class="item">
+          <div class="name">비프 웰링턴</div>
+          <div class="sub">안심</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>문의/예약 · <a href="#" onclick="return false;">Contact</a></div>
+        <div class="meta">Allergen note: seafood, dairy, gluten may be present.</div>
+      </footer>
+    </div>
   </div>
 </body>
 </html>
