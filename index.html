@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MENU</title>
+  <style>
+    :root{--bg:#0b0c10;--card:#111319;--text:#f4f6ff;--muted:#a8b0c2;--line:#222635;--accent:#7aa2ff;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:760px;margin:0 auto;padding:20px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .brand{display:flex;flex-direction:column}
+    .brand h1{font-size:22px;margin:0}
+    .brand p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .chip{border:1px solid var(--line);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0}
+    details>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+    details>summary::-webkit-details-marker{display:none}
+    .cat{font-weight:700}
+    .count{color:var(--muted);font-size:12px}
+    .items{border-top:1px solid var(--line)}
+    .item{padding:12px 16px;display:grid;grid-template-columns:1fr auto;gap:8px;border-top:1px solid rgba(255,255,255,.06)}
+    .item:first-child{border-top:none}
+    .name{font-weight:600}
+    .desc{grid-column:1/-1;color:var(--muted);font-size:13px;line-height:1.35}
+    .price{font-weight:700}
+    .soldout{opacity:.45}
+    .tag{display:inline-block;margin-left:8px;font-size:11px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+    footer{margin:18px 0 6px;color:var(--muted);font-size:12px;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>가게 이름</h1>
+        <p>영업시간 10:00–20:00 · 라스트오더 19:30</p>
+      </div>
+      <div class="chip">QR MENU</div>
+    </header>
+
+    <!-- 카테고리 1 -->
+    <div class="card">
+      <details open>
+        <summary>
+          <span class="cat">커피</span>
+          <span class="count">4 items</span>
+        </summary>
+        <div class="items">
+          <div class="item">
+            <div class="name">아메리카노 <span class="tag">HOT/ICE</span></div>
+            <div class="price">₩4,000</div>
+            <div class="desc">깔끔한 산미, 데일리</div>
+          </div>
+          <div class="item">
+            <div class="name">라떼 <span class="tag">ICE 추천</span></div>
+            <div class="price">₩4,800</div>
+            <div class="desc">고소한 우유 풍미</div>
+          </div>
+          <div class="item soldout">
+            <div class="name">바닐라 라떼 <span class="tag">SOLD OUT</span></div>
+            <div class="price">₩5,300</div>
+            <div class="desc">오늘은 품절입니다</div>
+          </div>
+          <div class="item">
+            <div class="name">콜드브루</div>
+            <div class="price">₩5,500</div>
+            <div class="desc">12시간 저온 추출</div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 카테고리 2 -->
+    <div class="card">
+      <details>
+        <summary>
+          <span class="cat">디저트</span>
+          <span class="count">2 items</span>
+        </summary>
+        <div class="items">
+          <div class="item">
+            <div class="name">치즈케이크</div>
+            <div class="price">₩6,500</div>
+            <div class="desc">진한 크림치즈</div>
+          </div>
+          <div class="item">
+            <div class="name">쿠키</div>
+            <div class="price">₩2,500</div>
+            <div class="desc">초코칩 듬뿍</div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <footer>
+      주소: 서울 ○○구 ○○로 12<br/>
+      문의: 010-1234-5678 · <a href="https://maps.google.com">지도 보기</a>
+    </footer>
+  </div>
+</body>
+</html>
